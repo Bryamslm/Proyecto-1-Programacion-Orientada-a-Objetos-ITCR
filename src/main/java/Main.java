@@ -10,6 +10,7 @@ import java.util.logging.Logger;
 /**
  *
  * @author bryam
+ * @author Luz
  */
 public class Main {
     public static void main(String[] args) throws IOException{
