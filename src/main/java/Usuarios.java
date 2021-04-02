@@ -39,5 +39,10 @@ public class Usuarios implements Serializable{
         return this.contrasena;
     }
     
+    public String getNombre(){
+        return this.nombre;
+    }
+    
+    
     
 }

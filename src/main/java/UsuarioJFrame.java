@@ -221,7 +221,9 @@ public class UsuarioJFrame extends javax.swing.JFrame{
               
                 for(Usuarios j: usuarios){
                     if(j.getContra().equals(contra)){
-                        JOptionPane.showMessageDialog(null, "Ingreso válido"); 
+                        MenuUsuario menu= new MenuUsuario(j);
+                        this.setVisible(false);
+                        menu.setVisible(true);
                         return;
                     }
                 }
