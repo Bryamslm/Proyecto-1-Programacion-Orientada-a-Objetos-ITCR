@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -255,6 +258,9 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
 
     private void txtAbdominalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAbdominalesActionPerformed
         // TODO add your handling code here:
+        if(txtAbdominales.isSelected()){
+            JOptionPane.showInputDialog(null, "Ingrese el número de repeticiones a realizar:", "Cantidad de repeticiones", HEIGHT);
+        }
     }//GEN-LAST:event_txtAbdominalesActionPerformed
 
     private void btAbdominalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAbdominalesActionPerformed
