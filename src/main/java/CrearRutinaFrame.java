@@ -29,7 +29,19 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        txtAbdominales = new javax.swing.JCheckBox();
+        btAbdominales = new javax.swing.JButton();
+        txtPlancha = new javax.swing.JCheckBox();
+        btPlancha = new javax.swing.JButton();
+        txtJalon = new javax.swing.JCheckBox();
+        btJalon = new javax.swing.JButton();
+        txtPress = new javax.swing.JCheckBox();
+        btPress = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtNombreRutina = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -37,12 +49,109 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
         jLabel1.setText("Crear Rutina");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Tren Superior:");
+        jLabel2.setText("Tren Inferior:");
 
-        jCheckBox2.setText("jCheckBox2");
-        jCheckBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtAbdominales.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        txtAbdominales.setText("Abdominales");
+        txtAbdominales.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jCheckBox2MousePressed(evt);
+                txtAbdominalesMousePressed(evt);
+            }
+        });
+        txtAbdominales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAbdominalesActionPerformed(evt);
+            }
+        });
+
+        btAbdominales.setText("Ver ejercicio");
+        btAbdominales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAbdominalesActionPerformed(evt);
+            }
+        });
+
+        txtPlancha.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        txtPlancha.setText("Plancha");
+        txtPlancha.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtPlanchaMousePressed(evt);
+            }
+        });
+        txtPlancha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPlanchaActionPerformed(evt);
+            }
+        });
+
+        btPlancha.setText("Ver ejercicio");
+        btPlancha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPlanchaActionPerformed(evt);
+            }
+        });
+
+        txtJalon.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        txtJalon.setText("Jalón al pecho");
+        txtJalon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtJalonMousePressed(evt);
+            }
+        });
+        txtJalon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJalonActionPerformed(evt);
+            }
+        });
+
+        btJalon.setText("Ver ejercicio");
+        btJalon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btJalonActionPerformed(evt);
+            }
+        });
+
+        txtPress.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        txtPress.setText("Press para hombro");
+        txtPress.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtPressMousePressed(evt);
+            }
+        });
+        txtPress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPressActionPerformed(evt);
+            }
+        });
+
+        btPress.setText("Ver ejercicio");
+        btPress.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btPressActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel3.setText("Nombre de la rutina:");
+
+        jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setText("Zona Media:");
+
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel5.setText("Tren Superior:");
+
+        txtNombreRutina.setFont(new java.awt.Font("Arial", 2, 14)); // NOI18N
+        txtNombreRutina.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreRutinaActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        jButton1.setText("Crear Rutina");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -56,23 +165,73 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
                         .addGap(106, 106, 106)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel2))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jCheckBox2)))
-                .addContainerGap(140, Short.MAX_VALUE))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNombreRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel5))))
+                .addContainerGap(65, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtJalon)
+                    .addComponent(txtPlancha)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(txtAbdominales)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btAbdominales))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btJalon)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtPress)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btPress))
+                            .addComponent(btPlancha))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(140, 140, 140))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreRutina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAbdominales)
+                    .addComponent(btAbdominales))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPlancha)
+                    .addComponent(btPlancha))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtJalon)
+                    .addComponent(btJalon))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPress)
+                    .addComponent(btPress))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox2)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(jButton1)
+                .addGap(91, 91, 91))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -89,11 +248,85 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBox2MousePressed
+    private void txtAbdominalesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtAbdominalesMousePressed
         // TODO add your handling code here:
-        InformacionEjercicios abdominales = new InformacionEjercicios();
+     
+    }//GEN-LAST:event_txtAbdominalesMousePressed
+
+    private void txtAbdominalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAbdominalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAbdominalesActionPerformed
+
+    private void btAbdominalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAbdominalesActionPerformed
+        // TODO add your handling code here:
+        
+        InformacionEjercicios abdominales= new InformacionEjercicios("./src/Graficas/ab1.jpg", "./src/Graficas/ab2.jpg", "Abdominales", 
+        
+        "Se recomienda realizar 50 abdominales en 5 rondas de 10 abdominales cada 1 separados en un lapso de 10 minutos cada ronda."        
+        );
+        
         abdominales.setVisible(true);
-    }//GEN-LAST:event_jCheckBox2MousePressed
+    }//GEN-LAST:event_btAbdominalesActionPerformed
+
+    private void txtPlanchaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPlanchaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlanchaMousePressed
+
+    private void txtPlanchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlanchaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPlanchaActionPerformed
+
+    private void btPlanchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPlanchaActionPerformed
+       InformacionEjercicios plancha= new InformacionEjercicios("./src/Graficas/plancha1.jpg", "./src/Graficas/plancha2.jpg", "Plancha", 
+        
+        "trabajando por tiempo, entre 12 y 20 segundos en en 6 series."        
+        );
+        
+        plancha.setVisible(true);
+    }//GEN-LAST:event_btPlanchaActionPerformed
+
+    private void txtJalonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJalonMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJalonMousePressed
+
+    private void txtJalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJalonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJalonActionPerformed
+
+    private void btJalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btJalonActionPerformed
+        // TODO add your handling code here:
+        InformacionEjercicios jalon= new InformacionEjercicios("./src/Graficas/jalon1.jpg", "./src/Graficas/jalon2.jpg", "Jalón al pecho", 
+        
+        "Se realizan 3 series de 20 repeticiones."        
+        );
+        
+        jalon.setVisible(true);
+    }//GEN-LAST:event_btJalonActionPerformed
+
+    private void txtPressMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtPressMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPressMousePressed
+
+    private void txtPressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPressActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPressActionPerformed
+
+    private void btPressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPressActionPerformed
+        InformacionEjercicios jalon= new InformacionEjercicios("./src/Graficas/press1.jpg", "./src/Graficas/press2.jpg", "Press para hombro", 
+        
+        "12 repeticiones en 4 series."        
+        );
+        
+        jalon.setVisible(true);
+    }//GEN-LAST:event_btPressActionPerformed
+
+    private void txtNombreRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreRutinaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreRutinaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,9 +334,21 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JButton btAbdominales;
+    private javax.swing.JButton btJalon;
+    private javax.swing.JButton btPlancha;
+    private javax.swing.JButton btPress;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JCheckBox txtAbdominales;
+    private javax.swing.JCheckBox txtJalon;
+    private javax.swing.JTextField txtNombreRutina;
+    private javax.swing.JCheckBox txtPlancha;
+    private javax.swing.JCheckBox txtPress;
     // End of variables declaration//GEN-END:variables
 }
