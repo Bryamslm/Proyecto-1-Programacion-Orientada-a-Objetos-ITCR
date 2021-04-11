@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -273,7 +274,12 @@ public class Registro extends javax.swing.JFrame {
                             return;
                         }
                     }
-                    usuarios.add(new Usuarios(nombre, edad, sexo, peso, estatura, usuario, contra));
+                    Usuarios nuevoUsuario=new Usuarios(nombre, edad, sexo, peso, estatura, usuario, contra);
+                    Rutina rutinaPorDefecto=new Rutina("Rutina básica");
+                    rutinaPorDefecto.agregarEjercicio("Plancha", 0, 20);
+                    rutinaPorDefecto.agregarEjercicio("Jalón al pecho", 22, 0);
+                    nuevoUsuario.addRutina(rutinaPorDefecto);
+                    usuarios.add(nuevoUsuario);
                     
                     ObjectOutputStream escritor = new ObjectOutputStream(new FileOutputStream(link));
                     escritor.writeObject(usuarios);
@@ -290,7 +296,14 @@ public class Registro extends javax.swing.JFrame {
                         ObjectOutputStream escritor = new ObjectOutputStream(new FileOutputStream(link));
                         LinkedList<Usuarios> usuarios= new LinkedList();
                         
-                        usuarios.add(new Usuarios(nombre, edad, sexo, peso, estatura, usuario, contra));
+                        Usuarios nuevoUsuario=new Usuarios(nombre, edad, sexo, peso, estatura, usuario, contra);
+                        Rutina rutinaPorDefecto=new Rutina("Rutina básica");
+                        rutinaPorDefecto.agregarEjercicio("Plancha", 0, 20);
+                        rutinaPorDefecto.agregarEjercicio("Jalón al pecho", 22, 0);
+                        nuevoUsuario.addRutina(rutinaPorDefecto);
+                        usuarios.add(nuevoUsuario);
+                        
+                        
                         escritor.writeObject(usuarios);
                         
                         JOptionPane.showMessageDialog(null, "Registro realizado correctamente");
@@ -307,6 +320,9 @@ public class Registro extends javax.swing.JFrame {
     private void txtRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegresarActionPerformed
         // TODO add your handling code here:
         this.setVisible(false);
+        UsuarioJFrame primerVentana= new UsuarioJFrame();
+        primerVentana.setVisible(true);
+        
     }//GEN-LAST:event_txtRegresarActionPerformed
 
     /**

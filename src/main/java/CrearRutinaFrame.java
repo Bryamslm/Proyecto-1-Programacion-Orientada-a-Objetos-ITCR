@@ -1,4 +1,15 @@
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -15,9 +26,11 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form CrearRutinaFrame
+     * @param usuario
      */
-    public CrearRutinaFrame() {
+    public CrearRutinaFrame(Usuarios usuario){
         initComponents();
+        nUsuario=usuario;
     }
 
     /**
@@ -29,6 +42,7 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -44,7 +58,11 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtNombreRutina = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        botonCreaRutina = new javax.swing.JButton();
+        botonRegresar = new javax.swing.JButton();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,11 +168,19 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jButton1.setText("Crear Rutina");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonCreaRutina.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        botonCreaRutina.setText("Crear Rutina");
+        botonCreaRutina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonCreaRutinaActionPerformed(evt);
+            }
+        });
+
+        botonRegresar.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
+        botonRegresar.setText("Regresar");
+        botonRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegresarActionPerformed(evt);
             }
         });
 
@@ -172,11 +198,16 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(jLabel2)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombreRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5))))
+                            .addComponent(jLabel5)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(botonCreaRutina)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(botonRegresar))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtNombreRutina, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(65, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(103, 103, 103)
@@ -196,17 +227,13 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
                                 .addComponent(btPress))
                             .addComponent(btPlancha))))
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(140, 140, 140))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNombreRutina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -232,9 +259,11 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(45, 45, 45)
-                .addComponent(jButton1)
-                .addGap(91, 91, 91))
+                .addGap(108, 108, 108)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonCreaRutina)
+                    .addComponent(botonRegresar))
+                .addGap(86, 86, 86))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -259,7 +288,19 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
     private void txtAbdominalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAbdominalesActionPerformed
         // TODO add your handling code here:
         if(txtAbdominales.isSelected()){
-            JOptionPane.showInputDialog(null, "Ingrese el número de repeticiones a realizar:", "Cantidad de repeticiones", HEIGHT);
+            String cantidad=JOptionPane.showInputDialog(null, "Ingrese el número de repeticiones a realizar:", "Cantidad de repeticiones", HEIGHT);
+            System.out.println(cantidad);
+            if(cantidad==null){
+                txtAbdominales.setSelected(false);
+            }else{
+                try{
+                    intCantAbdominales=Integer.parseInt(cantidad.trim());
+      
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Las repeticiones solo pueden ser números", "Ingreso inválido", JOptionPane.WARNING_MESSAGE);
+                    txtAbdominales.setSelected(false);
+                }
+            }
         }
     }//GEN-LAST:event_txtAbdominalesActionPerformed
 
@@ -280,6 +321,21 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
 
     private void txtPlanchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPlanchaActionPerformed
         // TODO add your handling code here:
+        if(txtPlancha.isSelected()){
+            String cantidad=JOptionPane.showInputDialog(null, "Ingrese los segundos a realizar:", "Cantidad de segundos", HEIGHT);
+            System.out.println(cantidad);
+            if(cantidad==null){
+                txtPlancha.setSelected(false);
+            }else{
+                try{
+                    intTiemPlancha=Integer.parseInt(cantidad.trim());
+      
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "El tiempo solo pueden ser en s", "Ingreso inválido", JOptionPane.WARNING_MESSAGE);
+                    txtPlancha.setSelected(false);
+                }
+            }
+        }
     }//GEN-LAST:event_txtPlanchaActionPerformed
 
     private void btPlanchaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPlanchaActionPerformed
@@ -297,6 +353,21 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
 
     private void txtJalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJalonActionPerformed
         // TODO add your handling code here:
+        if(txtJalon.isSelected()){
+            String cantidad=JOptionPane.showInputDialog(null, "Ingrese el número de repeticiones a realizar:", "Cantidad de repeticiones", HEIGHT);
+            System.out.println(cantidad);
+            if(cantidad==null){
+                txtJalon.setSelected(false);
+            }else{
+                try{
+                    intCantJalon=Integer.parseInt(cantidad.trim());
+      
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Las repeticiones solo pueden ser números", "Ingreso inválido", JOptionPane.WARNING_MESSAGE);
+                    txtJalon.setSelected(false);
+                }
+            }
+        }
     }//GEN-LAST:event_txtJalonActionPerformed
 
     private void btJalonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btJalonActionPerformed
@@ -315,6 +386,21 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
 
     private void txtPressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPressActionPerformed
         // TODO add your handling code here:
+        if(txtPress.isSelected()){
+            String cantidad=JOptionPane.showInputDialog(null, "Ingrese el número de repeticiones a realizar:", "Cantidad de repeticiones", HEIGHT);
+            System.out.println(cantidad);
+            if(cantidad==null){
+                txtPress.setSelected(false);
+            }else{
+                try{
+                    intCantPress=Integer.parseInt(cantidad.trim());
+      
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null, "Las repeticiones solo pueden ser números", "Ingreso inválido", JOptionPane.WARNING_MESSAGE);
+                    txtPress.setSelected(false);
+                }
+            }
+        }
     }//GEN-LAST:event_txtPressActionPerformed
 
     private void btPressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPressActionPerformed
@@ -330,9 +416,74 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreRutinaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonCreaRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCreaRutinaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        
+        
+        Rutina nuevaRutina= new Rutina(txtNombreRutina.getText());
+          
+       if(txtAbdominales.isSelected()){
+           nuevaRutina.agregarEjercicio("Abdominales", intCantAbdominales, 0);
+          
+       }
+        if(txtJalon.isSelected()){
+           nuevaRutina.agregarEjercicio("Jalón al pecho", intCantJalon, 0);
+          
+       }
+         if(txtPlancha.isSelected()){
+           nuevaRutina.agregarEjercicio("Plancha", 0, intTiemPlancha);
+          
+       }
+          if(txtPress.isSelected()){
+           nuevaRutina.agregarEjercicio("Press para hombro", intCantPress, 0);
+          
+       }
+        String nombreRutina=txtNombreRutina.getText().trim();
+       if(nuevaRutina.getCantidadEnLista()==0){
+           JOptionPane.showMessageDialog(null, "No puede crear una rutina sin almenos un ejercicio", "No se creó rutina", JOptionPane.WARNING_MESSAGE);
+       }else if("".equals(nombreRutina)){
+            JOptionPane.showMessageDialog(null, "La rutina debe tener un nombre", "No se creó rutina", JOptionPane.WARNING_MESSAGE);
+        }else{
+          nUsuario.addRutina(nuevaRutina);
+         
+          File link= new File("usuariosRegistrados.txt");
+          
+          
+           try {
+              ObjectInputStream lector = new ObjectInputStream(new FileInputStream(link));
+                    
+                LinkedList<Usuarios> usuarios= (LinkedList<Usuarios>) lector.readObject();
+                
+                for(Usuarios u: usuarios){
+                    if(u.getUsuario().equals(nUsuario.getUsuario())){
+                        u.addRutina(nuevaRutina);
+                    }
+                }
+                ObjectOutputStream escritor = new ObjectOutputStream(new FileOutputStream(link));
+                escritor.writeObject(usuarios);
+               
+           } catch (IOException | ClassNotFoundException e) {
+               Logger.getLogger(CrearRutinaFrame.class.getName()).log(Level.SEVERE, null, e);
+           }
+          
+          JOptionPane.showMessageDialog(null, "Rutina creada correctamente");
+          txtAbdominales.setSelected(false);
+          txtJalon.setSelected(false);
+          txtPlancha.setSelected(false);
+          txtPress.setSelected(false);
+          txtNombreRutina.setText("");
+       }
+      
+    }//GEN-LAST:event_botonCreaRutinaActionPerformed
+
+    private void botonRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegresarActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        MenuUsuario menu= new MenuUsuario(nUsuario);
+        menu.setVisible(true);
+                       
+    }//GEN-LAST:event_botonRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -340,11 +491,13 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCreaRutina;
+    private javax.swing.JButton botonRegresar;
     private javax.swing.JButton btAbdominales;
     private javax.swing.JButton btJalon;
     private javax.swing.JButton btPlancha;
     private javax.swing.JButton btPress;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -357,4 +510,9 @@ public class CrearRutinaFrame extends javax.swing.JFrame {
     private javax.swing.JCheckBox txtPlancha;
     private javax.swing.JCheckBox txtPress;
     // End of variables declaration//GEN-END:variables
+    static Usuarios nUsuario= new Usuarios();
+    int intCantAbdominales;
+    int intCantPress;
+    int intCantJalon;
+    int intTiemPlancha;
 }

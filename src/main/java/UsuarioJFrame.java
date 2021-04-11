@@ -8,6 +8,7 @@ import java.io.ObjectOutputStream;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -206,10 +207,13 @@ public class UsuarioJFrame extends javax.swing.JFrame{
                 ObjectInputStream lector = new ObjectInputStream(new FileInputStream(link));
                     
                 LinkedList<Usuarios> usuarios= (LinkedList<Usuarios>) lector.readObject();
-                    
+                
+                
+                
                 for(Usuarios u: usuarios){
                     if(u.getUsuario().equals(usuario)){
                            comprobacion=true;
+                           usuarioEncontrado=u;
                            break;
                     }
                 }
@@ -219,14 +223,14 @@ public class UsuarioJFrame extends javax.swing.JFrame{
                 }
                 comprobacion=false;
               
-                for(Usuarios j: usuarios){
-                    if(j.getContra().equals(contra)){
-                        MenuUsuario menu= new MenuUsuario(j);
-                        this.setVisible(false);
-                        menu.setVisible(true);
-                        return;
+               
+                if(usuarioEncontrado.getContra().equals(contra)){
+                    MenuUsuario menu= new MenuUsuario(usuarioEncontrado);
+                    menu.setVisible(true);
+                    this.setVisible(false);
+                    return;
                     }
-                }
+                
                 
                 JOptionPane.showMessageDialog(null, "Contraseña inválida", "No se pudo acceder", JOptionPane.WARNING_MESSAGE);   
                     
@@ -241,8 +245,10 @@ public class UsuarioJFrame extends javax.swing.JFrame{
 
     private void botonRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistroActionPerformed
         // TODO add your handling code here:
+        this.setVisible(false);
         Registro registro= new Registro();
         registro.setVisible(true);
+        
     }//GEN-LAST:event_botonRegistroActionPerformed
 
     private void usuarioloInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioloInActionPerformed
@@ -277,4 +283,5 @@ public class UsuarioJFrame extends javax.swing.JFrame{
     private static String usuario;
     private static String contra;
     private static boolean comprobacion;
+    Usuarios usuarioEncontrado=new Usuarios();
 }

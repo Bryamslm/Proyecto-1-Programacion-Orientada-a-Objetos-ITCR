@@ -166,6 +166,7 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="ejecutarRutina">
           <Properties>
+            <Property name="editable" type="boolean" value="true"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="3"/>
             </Property>
@@ -174,6 +175,7 @@
                 <StringItem index="0" value="Seleccionar"/>
               </StringArray>
             </Property>
+            <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ejecutarRutinaActionPerformed"/>

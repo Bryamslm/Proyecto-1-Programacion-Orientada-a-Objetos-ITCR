@@ -1,5 +1,6 @@
 
 import java.io.Serializable;
+import java.util.LinkedList;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -20,6 +21,7 @@ public class Usuarios implements Serializable{
     private double estatura;
     private String usuario;
     private String contrasena;
+    private LinkedList<Rutina>rutinas=new LinkedList<Rutina>();
     
     Usuarios(String nombre, int edad, String sexo, double peso, double estatura, String usuario, String contrasena){
         
@@ -32,6 +34,9 @@ public class Usuarios implements Serializable{
         this.contrasena=contrasena;
         
     }
+    Usuarios(){
+        
+    }
     public String getUsuario(){
         return this.usuario;
     }
@@ -42,7 +47,11 @@ public class Usuarios implements Serializable{
     public String getNombre(){
         return this.nombre;
     }
-    
-    
-    
+    public void addRutina(Rutina rutina){
+        rutinas.add(rutina);
+    }
+       
+    public LinkedList<Rutina> getRutinas(){
+        return rutinas;
+    }
 }

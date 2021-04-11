@@ -14,9 +14,9 @@ import java.util.logging.Logger;
  */
 public class Main {
     public static void main(String[] args) throws IOException{
+        
         UsuarioJFrame primerVentana= new UsuarioJFrame();
         
-       
         primerVentana.setVisible(true);
     }
     

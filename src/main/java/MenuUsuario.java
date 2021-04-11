@@ -1,4 +1,5 @@
 
+import java.util.LinkedList;
 import javax.swing.JFrame;
 
 /*
@@ -15,11 +16,32 @@ public class MenuUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuUsuario
-     * @param usuario
+     * 
      */
-    public MenuUsuario(Usuarios usuario) {
+    public MenuUsuario(Usuarios usuario){
         initComponents();
         txtNombreBienvenido.setText(usuario.getNombre());
+        nUsuario=usuario;
+        cargarRutinas();
+        
+    }
+    
+    public void cargarRutinas(){
+        
+        System.out.println("FUI LLAMDADO");
+        
+        LinkedList<Rutina> rutinas=new LinkedList<Rutina>();
+        rutinas= nUsuario.getRutinas();
+        
+        Rutina a= rutinas.getFirst();
+        
+        System.out.println(a.getNombreRutina());
+       
+        for(Rutina r: rutinas){
+            System.out.println(r.getNombreRutina());
+            ejecutarRutina.addItem(r.getNombreRutina());
+        }
+        
     }
 
     /**
@@ -59,8 +81,10 @@ public class MenuUsuario extends javax.swing.JFrame {
         txtNombreBienvenido.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         txtNombreBienvenido.setText("NombreUsuario");
 
+        ejecutarRutina.setEditable(true);
         ejecutarRutina.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         ejecutarRutina.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
+        ejecutarRutina.setToolTipText("");
         ejecutarRutina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ejecutarRutinaActionPerformed(evt);
@@ -195,7 +219,8 @@ public class MenuUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_ejecutarRutinaActionPerformed
 
     private void crearRutinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearRutinaActionPerformed
-        CrearRutinaFrame nuevaRutina=new CrearRutinaFrame();
+        this.setVisible(false);
+        CrearRutinaFrame nuevaRutina=new CrearRutinaFrame(nUsuario);
         nuevaRutina.setVisible(true);
     }//GEN-LAST:event_crearRutinaActionPerformed
 
@@ -219,4 +244,5 @@ public class MenuUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel txtBienvenido;
     private javax.swing.JLabel txtNombreBienvenido;
     // End of variables declaration//GEN-END:variables
+    private Usuarios nUsuario;
 }
