@@ -1,7 +1,15 @@
-# Rutinas de Entrenamiento
+# Primer proyecto POO
 
-Primer proyecto POO
+<div>
+  <h2><em>Rutinas de entrenamiento</em></h2>
+  <h3>Lenguaje: <em>Java</em></h3>
+ </div>
 
-<h2> Estudiantes:</h2>
-  Luz Mora
-  Bryam López
+
+<h3>Estudiantes:</h3>
+ <ul>
+    <em>
+      <li>Luz Mora</li>
+      <li>Bryam López</li>
+    <em>
+</ul>
