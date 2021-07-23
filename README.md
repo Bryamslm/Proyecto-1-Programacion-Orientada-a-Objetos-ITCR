@@ -1,10 +1,7 @@
 # Primer proyecto POO
 
-<div>
-  <h2><em>Rutinas de entrenamiento</em></h2>
-  <h3>Lenguaje: <em>Java</em></h3>
- </div>
-
+ <h2><em>Rutinas de entrenamiento</em></h2>
+ <h3>Lenguaje: <img alt="Java" width="28px" src="https://image.flaticon.com/icons/png/512/3291/3291697.png" /><em> Java</em></h3>
 
 <h3>Estudiantes:</h3>
  <ul>
